@@ -1,0 +1,242 @@
+/* Import Bootstrap CSS */
+@import 'bootstrap/dist/css/bootstrap.min.css';
+
+:root {
+  --primary-color: #00d2ff;
+  /* Cyan for tech look */
+  --primary-hover: #00a3cc;
+  --bg-color: #0b1120;
+  --text-color: #ffffff;
+  --text-muted: #94a3b8;
+  --surface-color: rgba(15, 23, 42, 0.75);
+  --border-color: rgba(255, 255, 255, 0.15);
+  --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  --card-hover-shadow: 0 15px 40px rgba(0, 210, 255, 0.1);
+}
+
+body {
+  background-color: var(--bg-color);
+  background-image: url('/bg-tech.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  color: var(--text-color);
+  min-height: 100vh;
+}
+
+/* Force text colors for common elements */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  color: var(--text-color);
+  font-weight: 600;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+p,
+span,
+label,
+div {
+  color: var(--text-color);
+}
+
+.text-muted {
+  color: var(--text-muted) !important;
+}
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+a:hover {
+  color: var(--primary-hover);
+  text-shadow: 0 0 10px rgba(0, 210, 255, 0.5);
+}
+
+/* Base Components */
+.card {
+  box-shadow: var(--card-shadow);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  background: var(--surface-color);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: var(--text-color);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--card-hover-shadow);
+  border-color: rgba(0, 210, 255, 0.3);
+}
+
+.card-title,
+.card-text {
+  color: var(--text-color);
+}
+
+.form-control {
+  border-radius: 10px;
+  padding: 12px;
+  border: 1px solid var(--border-color);
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+  transition: all 0.3s ease;
+}
+
+.form-control:focus {
+  background-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 0 2px rgba(0, 210, 255, 0.3);
+  border-color: var(--primary-color);
+  color: #ffffff;
+  transform: scale(1.01);
+}
+
+.form-control::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* Fix for auto-fill styles in Chrome */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px #0f172a inset !important;
+  -webkit-text-fill-color: white !important;
+}
+
+/* Buttons */
+.btn {
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-weight: 600;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary-color), #0056b3);
+  color: #ffffff;
+  border: none;
+  box-shadow: 0 4px 15px rgba(0, 210, 255, 0.3);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, var(--primary-hover), #004494);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 210, 255, 0.5);
+}
+
+.btn-primary:active {
+  transform: translateY(1px) scale(0.98);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.6s ease-out;
+}
+
+/* Dashboard */
+.dashboard-card {
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.dashboard-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 20px rgba(0, 210, 255, 0.2);
+}
+
+/* Navbar */
+.navbar {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  background: rgba(15, 23, 42, 0.8) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.navbar-brand,
+.nav-link {
+  color: var(--text-color) !important;
+}
+
+.nav-link {
+  opacity: 0.8;
+  transition: all 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--primary-color) !important;
+  opacity: 1;
+  text-shadow: 0 0 10px rgba(0, 210, 255, 0.4);
+}
+
+/* Utility */
+.hover-text-white:hover {
+  color: #ffffff !important;
+}
+
+.text-white {
+  color: #ffffff !important;
+}
+
+.text-gradient {
+  background: linear-gradient(180deg, #606c88 0%, #3f4c6b 100%);
+  /* Fallback/Iron Blue */
+  background: linear-gradient(to bottom, #434343, #000000);
+  /* Black Iron */
+  background: linear-gradient(to bottom, #5d5d5d 0%, #323232 50%, #1a1a1a 100%);
+  /* Realistic Iron */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: #333;
+  /* Fallback */
+  text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.1);
+  /* Subtle highlight */
+}
