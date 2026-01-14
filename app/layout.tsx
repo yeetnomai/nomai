@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import BootstrapClient from "@/components/BootstrapClient";
-import BackgroundMusic from "@/components/BackgroundMusic";
+
 
 export const metadata: Metadata = {
   title: "Student Management System",
@@ -17,7 +17,7 @@ export default function RootLayout({
     <html lang="th">
       <body>
         <BootstrapClient />
-        <BackgroundMusic />
+
         <main className="container py-4">
           {children}
         </main>
