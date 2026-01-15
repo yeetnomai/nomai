@@ -161,19 +161,19 @@ export default function StudentDashboard() {
                         </div>
                         <div className="card-body">
                             <div className="list-group">
-                                <a href="#" className="list-group-item list-group-item-action text-dark">
+                                <a href="#" className="list-group-item list-group-item-action">
                                     <div className="d-flex w-100 justify-content-between">
-                                        <h5 className="mb-1">ยินดีต้อนรับเปิดเทอมใหม่</h5>
-                                        <small>3 วันที่แล้ว</small>
+                                        <h5 className="mb-1 text-dark">ยินดีต้อนรับเปิดเทอมใหม่</h5>
+                                        <small className="text-muted">3 วันที่แล้ว</small>
                                     </div>
-                                    <p className="mb-1">ขอให้นักศึกษาทุกคนเตรียมความพร้อมสำหรับการเรียน...</p>
+                                    <p className="mb-1 text-dark">ขอให้นักศึกษาทุกคนเตรียมความพร้อมสำหรับการเรียน...</p>
                                 </a>
-                                <a href="#" className="list-group-item list-group-item-action text-dark">
+                                <a href="#" className="list-group-item list-group-item-action">
                                     <div className="d-flex w-100 justify-content-between">
-                                        <h5 className="mb-1">กำหนดการลงทะเบียนเรียนเพิ่ม-ถอน</h5>
-                                        <small>1 สัปดาห์ที่แล้ว</small>
+                                        <h5 className="mb-1 text-dark">กำหนดการลงทะเบียนเรียนเพิ่ม-ถอน</h5>
+                                        <small className="text-muted">1 สัปดาห์ที่แล้ว</small>
                                     </div>
-                                    <p className="mb-1">กิจกรรมเพิ่มถอนรายวิชาเริ่มตั้งแต่วันที่...</p>
+                                    <p className="mb-1 text-dark">กิจกรรมเพิ่มถอนรายวิชาเริ่มตั้งแต่วันที่...</p>
                                 </a>
                             </div>
                         </div>

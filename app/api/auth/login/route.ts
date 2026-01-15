@@ -36,8 +36,7 @@ export async function POST(request: Request) {
             username: user.username,
             role: role,
             name: type === 'student' ? `${(user as any).first_name} ${(user as any).last_name}` : user.username,
-            department_id: type === 'student' ? (user as any).department_id : null,
-            profile_image: type === 'student' ? (user as any).profile_image : null
+            department_id: type === 'student' ? (user as any).department_id : null
         };
 
         // In a real app, sign this with a secret
