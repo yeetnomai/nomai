@@ -83,15 +83,5 @@ export const db = {
             return true;
         }
         return false;
-    },
-    updateStudentProfileImage: (id: number, imageBase64: string) => {
-        const data = readDb();
-        const student = data.students.find(s => s.student_id === id);
-        if (student) {
-            student.profile_image = imageBase64;
-            writeDb(data);
-            return true;
-        }
-        return false;
     }
 };
