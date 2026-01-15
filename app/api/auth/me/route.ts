@@ -24,7 +24,8 @@ export async function GET() {
                         ...sessionData,
                         phone: student.phone, // In case it was updated
                         dob: student.dob,
-                        department_id: student.department_id
+                        department_id: student.department_id,
+                        profile_image: student.profile_image
                     }
                 });
             }
