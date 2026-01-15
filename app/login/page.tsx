@@ -134,6 +134,11 @@ function LoginForm() {
                                 )}
                             </div>
                         </form>
+                        <div className="text-center mt-3">
+                            <Link href="/forgot-password" className="text-decoration-none text-white-50 hover-text-white small">
+                                ลืมรหัสผ่าน?
+                            </Link>
+                        </div>
                     </div>
                 </div>
                 <div className="text-center mt-3">
