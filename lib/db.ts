@@ -84,11 +84,11 @@ export const db = {
         }
         return false;
     },
-    updateStudentProfileImage: (id: number, imageBase64: string) => {
+    updateStudentProfileImage: (username: string, imageUrl: string) => {
         const data = readDb();
-        const student = data.students.find(s => s.student_id === id);
+        const student = data.students.find(s => s.username === username);
         if (student) {
-            student.profile_image = imageBase64;
+            student.profile_image = imageUrl;
             writeDb(data);
             return true;
         }

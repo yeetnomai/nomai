@@ -17,43 +17,6 @@ export default function StudentDashboard() {
                 if (!data.authenticated || data.user.role !== 'student') {
                     router.push('/login');
                 } else {
-                    // Fetch full student data to get the image
-                    // In a real app 'me' should return it, but here we can just rely on the stored session or refetch fresh data
-                    // For simplicity, let's assume 'me' returns what's in the session.
-                    // If 'me' doesn't return profile_image, we might need another call or update 'me'.
-                    // Let's check 'me' implementation. 
-                    // Wait, 'me' just returns cookie data. We need to fetch fresh student data to get the image if it was updated.
-                    // Or we can just update the local state after upload.
-                    // But on refresh, we need the image. 
-                    // Let's fetch the student details using a new API or just rely on 'me' being updated? 
-                    // current 'me' uses session cookie which is static until re-login.
-                    // So we should fetch student profile. 
-                    // Let's just create a quick client-side fetch for the image or update 'me' to read from DB?
-                    // Updating 'me' is better but involves another file change.
-                    // Let's add a quick client-side fetch here for simplicity if needed, or better:
-                    // Just update 'me' API to return fresh DB data for the user.
-                    // For now, let's just implement the UI and simple upload.
-                    // Actually, if I update 'me', all pages benefit.
-                    // Let's assume 'me' will be updated or I handle it here.
-                    // For now, let's fetch specific student data if we can, or just trust 'me' for basic info and maybe 'me' needs to return profile_image?
-                    // The session cookie doesn't have it.
-                    // Use a separate effect to fetch profile image? Or just display if available? 
-                    // Let's add a 'fetchProfile' helper?
-                    // Actually, let's just make a simple GET to a new route or re-use something?
-                    // Api 'api/student/profile' would be good.
-                    // For now, I'll use the 'me' data and realizing it might be stale for image.
-                    // I will add a fetch to get the fresh user data ensuring the image is there.
-                    fetch('/api/auth/me?fresh=true') // We might need to implement this
-                        .then(r => r.json()).then(d => {
-                            if (d.user && d.user.username) {
-                                // We can't easily get fresh data without an endpoint.
-                                // Let's just use what we have and maybe the user has to re-login? No that's bad.
-                                // I'll add a fetch to get fresh student info by ID if I had the ID.
-                                // I'll just use the UI state for now and maybe fixing 'me' is a followup.
-                                // Wait, I can just update the 'me' route to optionally return fresh DB data.
-                                setUser(data.user);
-                            }
-                        });
                     setUser(data.user);
                 }
             })
