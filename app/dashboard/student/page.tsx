@@ -8,7 +8,7 @@ export default function StudentDashboard() {
     const [user, setUser] = useState<any>(null);
     const [loading, setLoading] = useState(true);
 
-    const [uploading, setUploading] = useState(false);
+
 
     useEffect(() => {
         fetch('/api/auth/me')
@@ -65,41 +65,6 @@ export default function StudentDashboard() {
         router.push('/login');
     };
 
-    const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
-        const file = e.target.files?.[0];
-        if (!file) return;
-
-        if (file.size > 500000) { // 500KB limit
-            alert('File is too large. Please select an image under 500KB.');
-            return;
-        }
-
-        const reader = new FileReader();
-        reader.onloadend = async () => {
-            const base64 = reader.result as string;
-            setUploading(true);
-            try {
-                const res = await fetch('/api/student/profile/update', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ imageBase64: base64 })
-                });
-
-                if (res.ok) {
-                    setUser({ ...user, profile_image: base64 });
-                } else {
-                    alert('Failed to update profile image');
-                }
-            } catch (err) {
-                console.error(err);
-                alert('Error uploading image');
-            } finally {
-                setUploading(false);
-            }
-        };
-        reader.readAsDataURL(file);
-    };
-
     if (loading) return <div className="text-center mt-5"><div className="spinner-border text-primary"></div></div>;
     if (!user) return null;
 
@@ -122,27 +87,9 @@ export default function StudentDashboard() {
                             ข้อมูลส่วนตัว
                         </div>
                         <div className="card-body text-center">
-                            <div className="position-relative d-inline-block mb-3">
-                                <div
-                                    className="rounded-circle overflow-hidden bg-secondary d-flex align-items-center justify-content-center"
-                                    style={{ width: '120px', height: '120px', margin: '0 auto', border: '4px solid #f8f9fa' }}
-                                >
-                                    {user.profile_image ? (
-                                        <img src={user.profile_image} alt="Profile" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                                    ) : (
-                                        <i className="bi bi-person-fill text-white display-4"></i>
-                                    )}
-                                </div>
-                                <label
-                                    className="btn btn-sm btn-light position-absolute bottom-0 end-0 rounded-circle shadow-sm"
-                                    style={{ width: '32px', height: '32px', padding: '4px' }}
-                                    title="เปลี่ยนรูปโปรไฟล์"
-                                >
-                                    <i className="bi bi-camera-fill"></i>
-                                    <input type="file" className="d-none" accept="image/*" onChange={handleImageUpload} disabled={uploading} />
-                                </label>
+                            <div className="mb-3">
+                                <i className="bi bi-person-circle display-1 text-primary"></i>
                             </div>
-                            {uploading && <div className="text-muted small mb-2">กำลังอัปโหลด...</div>}
 
                             <div className="text-start mt-3">
                                 <p><strong>ชื่อ-นามสกุล:</strong> {user.name}</p>

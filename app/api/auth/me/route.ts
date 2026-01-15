@@ -22,10 +22,8 @@ export async function GET() {
                     authenticated: true,
                     user: {
                         ...sessionData,
-                        phone: student.phone, // In case it was updated
                         dob: student.dob,
-                        department_id: student.department_id,
-                        profile_image: student.profile_image
+                        department_id: student.department_id
                     }
                 });
             }
