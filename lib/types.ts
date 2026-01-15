@@ -14,6 +14,7 @@ export interface Student {
     department_id: number;
     username: string; // first_name-last_name
     password_hash: string;
+    profile_image?: string;
 }
 
 export interface AdminUser {
